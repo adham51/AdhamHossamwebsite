@@ -55,110 +55,107 @@
     });
   }
 
-  // Load the Lottie animation
-  document.addEventListener("DOMContentLoaded", function() {
-    lottie.loadAnimation({
-      container: document.getElementById('coding-person'), // the DOM element where you want to render the animation
-      renderer: 'svg', // render as SVG
-      loop: true, // loop the animation
-      autoplay: true, // autoplay the animation
-      path: './assets/codingPerson.json' // path to the JSON animation file
-    });
-  });
-
-    // Load the Skills selection animation
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const skills = [
-        { skillName: "HTML", iconClass: "fab fa-html5" },
-        { skillName: "CSS", iconClass: "fab fa-css3-alt" },
-        { skillName: "JavaScript", iconClass: "fab fa-js" },
-        { skillName: "React", iconClass: "fab fa-react" },
-        { skillName: "Node.js", iconClass: "fab fa-node" },
-        { skillName: "npm", iconClass: "fab fa-npm" },
-        { skillName: "SQL/MariaDB", iconClass: "fas fa-database" },
-        { skillName: "GitHub", iconClass: "fab fa-github" },
-        { skillName: "Python", iconClass: "fab fa-python" },
-        { skillName: "C++", iconClass: "fab fa-c" },
-        { skillName: "Java", iconClass: "fab fa-java" },
-        { skillName: "Linux", iconClass: "fab fa-linux" },
-
-
-      ];
-    
-      const skillsContainer = document.getElementById("skillsContainer");
-      console.log("Skills container:", skillsContainer);
-
-    
-      // Ensure skillsContainer exists
-      if (skillsContainer) {
-        skills.forEach((skill) => {
-          console.log("Adding skill:", skill.skillName);
-
-          const li = document.createElement("li");
-          li.classList.add("software-skill-inline");
-    
-          const icon = document.createElement("i");
-          icon.className = skill.iconClass; // FontAwesome icon class
-          li.appendChild(icon);
-    
-          const skillText = document.createElement("p");
-          skillText.textContent = skill.skillName;
-          li.appendChild(skillText);
-    
-          skillsContainer.appendChild(li);
-        });
-      } else {
-        console.error("Skills container not found");
-      }
-    });
-    
-    const educationInfo = {
-      display: true,
-      schools: [
-          {
-              schoolName: "Harvard University",
-              logo: "../assets/img/stem_logo.png",
-              subHeader: "Master of Science in Computer Science",
-              duration: "September 2017 - April 2019",
-              desc: "Participated in the research of XXX and published 3 papers.",
-              descBullets: [
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-              ]
-          },
-          {
-              schoolName: "Stanford University",
-              logo: "assets/images/stanfordLogo.png",
-              subHeader: "Bachelor of Science in Computer Science",
-              duration: "September 2013 - April 2017",
-              desc: "Ranked top 10% in the program. Took courses about Software Engineering, Web Security, Operating Systems, ...",
-              descBullets: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit"]
-          }
-      ]
-  };
-  
-  if (educationInfo.display) {
-      const cardContainer = document.getElementById('education-cards');
-  
-      educationInfo.schools.forEach(school => {
-          const card = document.createElement('div');
-          card.className = 'education-card';
-          
-          card.innerHTML = `
-              <img src="${school.logo}" alt="${school.schoolName} Logo">
-              <h4>${school.schoolName}</h4>
-              <h5>${school.subHeader}</h5>
-              <p>${school.duration}</p>
-              <p>${school.desc}</p>
-              <ul>
-                  ${school.descBullets.map(bullet => `<li>${bullet}</li>`).join('')}
-              </ul>
-          `;
-          
-          cardContainer.appendChild(card);
+    // Load the Lottie animation
+    document.addEventListener("DOMContentLoaded", function() {
+      lottie.loadAnimation({
+        container: document.getElementById('coding-person'), // the DOM element where you want to render the animation
+        renderer: 'svg', // render as SVG
+        loop: true, // loop the animation
+        autoplay: true, // autoplay the animation
+        path: './assets/codingPerson.json' // path to the JSON animation file
       });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Load the Lottie animation for email
+      var emailAnimation = lottie.loadAnimation({
+          container: document.getElementById('lottie-animation'), // the DOM element where you want to render the animation
+          renderer: 'svg', // render as SVG
+          loop: true, // loop the animation
+          autoplay: true, // autoplay the animation
+          path: './assets/myemail.json' // path to the email JSON animation file
+      });
+  });
+  
+    document.addEventListener("DOMContentLoaded", function() {
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const galleryImg = document.getElementById('gallery-img');
+    
+      galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+          const imgPath = this.getAttribute('data-image');
+          galleryImg.classList.add('hidden');
+    
+          setTimeout(() => {
+            galleryImg.src = imgPath;
+            galleryImg.classList.remove('hidden');
+          }, 500);
+        });
+      });
+    
+      // galleryItems.forEach(item => {
+      //   item.addEventListener('mouseleave', function() {
+      //     galleryImg.classList.add('hidden');
+    
+      //     setTimeout(() => {
+      //       galleryImg.src = './assets/img/Gallery/3.png';
+      //       galleryImg.classList.remove('hidden');
+      //     }, 500);
+      //   });
+      // });
+    });
+    
+    
+
+// Load the Skills selection animation
+
+document.addEventListener("DOMContentLoaded", function () {
+  const skills = [
+    { skillName: "HTML", iconClass: "fab fa-html5" },
+    { skillName: "CSS", iconClass: "fab fa-css3-alt" },
+    { skillName: "JavaScript", iconClass: "fab fa-js" },
+    { skillName: "React", iconClass: "fab fa-react" },
+    { skillName: "Node.js", iconClass: "fab fa-node" },
+    { skillName: "npm", iconClass: "fab fa-npm" },
+    { skillName: "SQL/MariaDB", iconClass: "fas fa-database" },
+    { skillName: "GitHub", iconClass: "fab fa-github" },
+    { skillName: "Python", iconClass: "fab fa-python" },
+    { skillName: "C++", iconClass: "fab fa-c" },
+    { skillName: "Java", iconClass: "fab fa-java" },
+    { skillName: "Linux", iconClass: "fab fa-linux" },
+    { skillName: "AWS", iconClass: "fab fa-aws" },
+
+
+
+  ];
+
+  const skillsContainer = document.getElementById("skillsContainer");
+  console.log("Skills container:", skillsContainer);
+
+
+  // Ensure skillsContainer exists
+  if (skillsContainer) {
+    skills.forEach((skill) => {
+      console.log("Adding skill:", skill.skillName);
+
+      const li = document.createElement("li");
+      li.classList.add("software-skill-inline");
+
+      const icon = document.createElement("i");
+      icon.className = skill.iconClass; // FontAwesome icon class
+      li.appendChild(icon);
+
+      const skillText = document.createElement("p");
+      skillText.textContent = skill.skillName;
+      li.appendChild(skillText);
+
+      skillsContainer.appendChild(li);
+    });
+  } else {
+    console.error("Skills container not found");
   }
+});
 
   /**
    * Scroll top button
@@ -204,9 +201,9 @@
     new Typed('.typed', {
       strings: typed_strings,
       loop: true,
-      typeSpeed: 50,
+      typeSpeed: 100,
       backSpeed: 50,
-      backDelay: 1000
+      backDelay: 2000
     });
   }
 
@@ -215,22 +212,7 @@
    */
   new PureCounter();
 
-  /**
-   * Animate the skills items on reveal
-   */
-  let skillsAnimation = document.querySelectorAll('.skills-animation');
-  skillsAnimation.forEach((item) => {
-    new Waypoint({
-      element: item,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = item.querySelectorAll('.progress .progress-bar');
-        progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
-        });
-      }
-    });
-  });
+
 
   /**
    * Initiate glightbox
