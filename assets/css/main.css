@@ -262,6 +262,8 @@ h6 {
   background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
 }
 
+
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -589,20 +591,25 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 #hero.hero {
-  width: 100%;
+  width: calc(100% + 2%); /* Adjust width dynamically */
   min-height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-position: right;
+  background-image: url("/assets/img/homefinal.png") !important;
   background-size: cover;
   background-repeat: no-repeat;
-  z-index: 10; /* Set a lower z-index for the background */
-  background-image: url("/assets/img/homefinal.png") !important;
-
-
+  background-position: center center;
+  z-index: 10;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  transform: translateX(-2%); /* Move the container 20% to the left */
 }
+
+
+
 
 .hero:before {
   content: "";
@@ -734,6 +741,8 @@ section,
   padding: 10px 20px;
 }
 
+
+
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 32px;
@@ -780,7 +789,9 @@ section,
 --------------------------------------------------------------*/
 #about {
   margin-bottom: -50px;
+  margin-right: 20px;
 }
+
 
 .about .content h2 {
   font-weight: 700;
@@ -812,6 +823,12 @@ section,
   margin-right: 5px;
   color: var(--accent-color);
   line-height: 0;
+}
+
+@media (max-width: 1380px) {
+  #about {
+    margin: 0 10px;
+  }
 }
 
 
