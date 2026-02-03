@@ -163,7 +163,7 @@ h6 {
   left: 0;
   bottom: 0;
   padding: 0 15px;
-  width: 300px;
+  width: max-content;
   transition: all ease-in-out 0.3s;
   overflow-y: auto;
   z-index: 997;
@@ -588,31 +588,25 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-.hero {
+#hero.hero {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  padding: 80px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 10; /* Set a lower z-index for the background */
+  background-image: url("/assets/img/homefinal.png") !important;
 
-.hero img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  
-  z-index: 1;
+
 }
 
 .hero:before {
   content: "";
   background: color-mix(in srgb, var(--background-color), transparent 70%);
-
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -645,7 +639,6 @@ section,
   border-bottom: 3px solid rgb(164, 176, 202) !important;
 }
 
-
 .buttoncontainer {
   display: flex;
   justify-content: center;
@@ -659,8 +652,6 @@ section,
   width: auto; /* This will adapt to the text width */
   padding: 10px 20px; /* Adjust padding as needed for better button sizing */
 }
-
-
 
 
 .hero .social-links {
@@ -689,20 +680,6 @@ section,
   transition: all 0.3s ease 0s;
   transform: translateY(-2px);
 }
-
-
-
-@media (max-width: 768px) {
-  .hero h2 {
-    font-size: 32px;
-  }
-
-  .hero p {
-    font-size: 20px;
-  }
-}
-
-
 
 
 .hero h2 {
@@ -743,6 +720,20 @@ section,
   color: var(--accent-color);
 }
 
+.buttoncontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  margin-top: 50px;
+}
+
+.buttondiv {
+  margin: 0 auto;
+  width: auto;
+  padding: 10px 20px;
+}
+
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 32px;
@@ -751,7 +742,38 @@ section,
   .hero p {
     font-size: 20px;
   }
+
+  .buttoncontainer {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    gap: 10px; /* Reduce gap between buttons */
+    width: 100%; /* Full width for buttons */
+    align-items: center; /* Center align buttons */
+    margin-top: 20px; /* Adjust margin for better spacing */
+
+  }
+
+  #contactbutton,
+  #downloadbutton {
+    width: 90%; /* Make buttons wider for better touch targets */
+  }
 }
+
+@media (max-width: 510px) {
+  #hero.hero {
+    background-position: 70%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 4;
+  }
+
+  .container {
+    margin-top: 140px;
+  }
+}
+
+
+
+
 
 /*--------------------------------------------------------------
 # About Section
@@ -919,6 +941,60 @@ section,
     order: 2;
   }
 }
+
+@media (max-width: 510px) {
+  .skills-heading {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .skills-main-div {
+    flex-direction: column;
+    margin-bottom: 100px;
+  }
+
+  .skills-text-div {
+    margin-left: 0px;
+    margin: 20px;
+    padding-top: -200px;
+  }
+  
+
+  .skills-text-subtitle,
+  .skills-text {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .skills-image-div {
+    order: 2;
+  }
+
+  .dev-icons {
+    list-style: none;
+    font-size: 2.7rem;
+    margin-left: 0px;
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows items to wrap onto the next line */
+    justify-content: center;
+    /* Align icons horizontally */
+  }
+  
+  .dev-icons li {
+    padding: 10px;
+    flex: 1 0 10%;
+    /* Each icon takes up 16.66% width to fit 6 icons per row */
+    max-width: 10%;
+    /* Prevents the icon from growing too large */
+    box-sizing: border-box;
+    /* Ensures padding doesn’t affect the width */
+  }
+
+
+}
+
 
 
 
@@ -1116,6 +1192,18 @@ section,
     margin-right: 0px;
   }
 }
+@media (max-width: 470px) {
+  #bottomcardcontainer {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 530px) {
+  .education-text-school {
+    line-height: 1.2; /* Adjust the line height as needed */
+  }
+}
+
 @media (max-width: 320px) {
   .resume-button {
     font-size: 0.75rem;
@@ -1264,6 +1352,36 @@ section,
 
 .portfolio-description{
   text-align: justify;
+}
+
+
+
+@media (max-width: 510px) {
+  /* Center the isotope-container */
+  .portfolio .isotope-container {
+    margin: 0 auto; /* Remove any offset */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align items */
+  }
+
+  /* Center each portfolio item */
+  .portfolio .portfolio-item {
+    margin: 0 auto 20px auto; /* Center-align and add spacing between items */
+    width: 100%; /* Adjust width if you want full-width items on mobile */
+    max-width: 300px; /* Set a max width for a nice fit */
+  }
+
+  .portfolio .portfolio-content img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Optionally reduce the filter button margins */
+  .portfolio .portfolio-filters li {
+    margin: 0 5px;
+  }
 }
 
 
@@ -1554,33 +1672,36 @@ section,
 --------------------------------------------------------------*/
 .gallery {
   padding: 60px 0;
+  text-align: center;
 }
 
 .gallery-image {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-height: 1000px; /* Increase the height to make images larger */
+  overflow: hidden;
 }
 
 .gallery-image img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the container fully */
   border-radius: 10px;
   transition: opacity 0.5s ease-in-out;
   opacity: 1;
 }
 
-.gallery-image img.hidden {
-  opacity: 0;
-}
-
 .gallery-titles {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .gallery-item {
   margin: 15px 0;
+  max-width: 100%;
   transition: color 0.3s ease;
 }
 
@@ -1604,11 +1725,66 @@ section,
   color: #666;
 }
 
-.gallery-item:hover .title,
-.gallery-item:hover .description {
-  text-decoration: none;
-  color: #ff00ff; 
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 20px 20px 40px 20px;
+
+  }
+  .gallerytitle{
+    margin-top: 20px;
+  }
+
+  .gallery-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* Set a max-width for the image on mobile */
+    margin-top: -20px; /* Move the image up on mobile */
+    position: relative;
+  }
+
+  .gallery-image img {
+    width: 100%;
+    max-height: 400px; /* Adjust height as needed for mobile */
+    object-fit: contain;
+  }
 }
+
+
+@media (max-width: 510px) {
+  .gallery {
+    padding: 0 20px 40px 20px;
+  }
+
+  .gallery-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Limit image width on smaller screens */
+    max-height: 600px; /* Smaller height for extra-small screens */
+    margin-top: -15px; /* Move the image up slightly */
+    position: relative;
+  }
+
+  .gallery-image img {
+    width: 100%; /* Make image responsive */
+    max-height: 100%; /* Prevent image from exceeding container height */
+    object-fit: contain; /* Prevent overflow */
+  }
+
+  .title {
+    font-size: 12px; /* Adjust font size for mobile */
+  }
+
+  .description {
+    font-size: 10px; /* Adjust font size for mobile */
+  }
+}
+
+
 
 
 /*--------------------------------------------------------------
